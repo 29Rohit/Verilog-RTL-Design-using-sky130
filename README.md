@@ -8,7 +8,8 @@ This repository contains the usage of tools like iverilog, gtkwave and yosys for
   * [iverilog](#iverilog)
   * [gtkwave](#gtkwave)
   * [sky130 libraries](#sky130-libraries)
-  * [yosys](#yosys)
+  * [yosys](#yosys)![different flavour](https://user-images.githubusercontent.com/20563301/119850612-5675ed00-bf2b-11eb-8ecd-7f522e9bc057.PNG)
+
 - [Modelling Techniques](#Modelling-Techniques)
   * [Modelling Combinational Logic](#Modelling-Combinational-Logic)
 - [Synthesis Techniques](#Modelling-Techniques)
