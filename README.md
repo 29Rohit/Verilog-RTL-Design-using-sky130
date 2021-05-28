@@ -144,7 +144,7 @@ The netlist can be written using following command. By observing the netlist we 
 ```
 write_verilog -noattr multiple_modules_hier.v
 ```
-### Flat Synthesis
+#### Flat Synthesis
 
 Run the below command to flatten the synthesized design
 
