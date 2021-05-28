@@ -159,6 +159,10 @@ The synthesized design looks as shown below if we run `show` command after flatt
 
 Submodule level synthesis comes handy in several cases, if same submodule is instantiated many times within the module then we can synthesize the submodule only once using the submodule level synthesis. Consider another case where the design is very large and produces non-optimal netlist when synthesis is performed at once, here we can synthesize the submodules seperatly to produce optimal netlist.
 
-Submodule synthesis can be performed using yosys by following same steps mentioned in [above section](#yosys). But we need to provide required submodule for `synth -top` command.
+Submodule synthesis can be performed using yosys by following same steps mentioned in [above section](#yosys).
+synth -top sub_module1 : synthesis your sub module instead of top module.
+Why it is needed? Reason 1) when we have multiple instance of same module.
+                         2) to reduce the load by executing one at a time for tool which is working for massive machine.
+
 
 ### Special Cases
