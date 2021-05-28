@@ -63,9 +63,9 @@ sky130 pdk library is used for mapping the purpose during synthesis. The design 
 
 * Clone the repository using following command
 
-
+```
 git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
-
+```
 
 ### yosys
 
