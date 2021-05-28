@@ -163,8 +163,9 @@ Submodule synthesis can be performed using yosys by following same steps mention
 ```
 synth -top sub_module1 : synthesis your sub module instead of top module.
 ```
-Why it is needed? Reason 1.when we have multiple instance of same module.
-                         2.to reduce the load by executing one at a time for tool which is working for massive machine.
+Why it is needed? Reasons:-
+1. when we have multiple instance of same module.
+2. to reduce the load by executing one at a time for tool which is working for massive machine.
 
 
 ### Special Cases
