@@ -14,8 +14,6 @@ This repository contains the usage of tools like iverilog, gtkwave and yosys for
   * [Hierarchial Synthesis](#Hierarchial-Synthesis)
   * [Flat Synthesis](#Flat-Synthesis)
   * [Submodule Level Synthesis](#Submodule-Level-Synthesis)
-  * Special Cases
-  * 
 
 ## Open Source Tool Chain
 
@@ -163,4 +161,4 @@ Submodule level synthesis comes handy in several cases, if same submodule is ins
 
 Submodule synthesis can be performed using yosys by following same steps mentioned in [above section](#yosys). But we need to provide required submodule for `synth -top` command.
 
-
+### Special Cases
