@@ -1,20 +1,60 @@
-# Open Source RTL Design
+# Open Source RTL Design using Sky130 Technolgy
+![1](https://user-images.githubusercontent.com/20563301/120014244-74ad1d00-bfff-11eb-9d53-8df2784ecb07.PNG)
+
 This repository contains the usage of tools like iverilog, gtkwave and yosys for open-source RTL Design. The content is documentation of tasks carried out during VSD "RTL Design Using Verilog With SKY130 Technology".
 
+SKY130 is the hardware industry's first open-source process design kit (PDK) released by SkyWater Technology Foundry in collaboration with Google giving all hardware design experts and aficionados, a worldwide access to their IP functions and open source ASICs. More details [here.](https://github.com/google/skywater-pdk).
+
+This particular workshop covers the various aspects of design in Verilog HDL both theoretically and practically with labs using open-source softwares through their VSD-IAT portal. Beginning with an introduction to digital design using Verilog HDL and various libraby, the instructors cover digital design steps that include design, functional simulation, test bench based validation of the design functionality and logic Synthesis with optimization. Further, we learn about efficient verilog coding styles that result in a predictable logic in Silicon.
 ## Table of Contents
 
-- [Open Source Tool Chain](#Open-Source-Tool-Chain)
-  * [iverilog](#iverilog)
-  * [gtkwave](#gtkwave)
-  * [sky130 libraries](#sky130-libraries)
-  * [yosys](#yosys)
-- [Modelling Techniques](#Modelling-Techniques)
-  * [Modelling Combinational Logic](#Modelling-Combinational-Logic)
-- [Synthesis Techniques](#Modelling-Techniques)
-  * [Hierarchial Synthesis](#Hierarchial-Synthesis)
-  * [Flat Synthesis](#Flat-Synthesis)
-  * [Submodule Level Synthesis](#Submodule-Level-Synthesis)
+<h1>Workshop Day wise Content :</h1>
+<details>
 
+  [<h2>Day 1 - Introduction to Verilog RTL design and Synthesis</h2>](https://github.com/mdzakirhussain/RTLDesignusingVerilogwithSKY130Technology/blob/main/README.md#day-1---introduction-to-verilog-rtl-design-and-synthesis-1)
+<ul>
+  <li><a href="https://github.com/mdzakirhussain/RTLDesignusingVerilogwithSKY130Technology/blob/main/README.md#introduction-to-open-source-simulator-iverilog">Introduction to open-source simulator iverilog</a></li>
+  
+  <li><a href="https://github.com/mdzakirhussain/RTLDesignusingVerilogwithSKY130Technology/blob/main/README.md#labs-using-iverilog-and-gtkwave">Labs using iverilog and <a href="http://gtkwave.sourceforge.net">gtkwave</a></a></li>
+<li><a href="https://github.com/mdzakirhussain/RTLDesignusingVerilogwithSKY130Technology/blob/main/README.md#introduction-to-yosys-and-logic-synthesis">Introduction to Yosys and Logic synthesis</a></li>
+<li><a href="https://github.com/mdzakirhussain/RTLDesignusingVerilogwithSKY130Technology/blob/main/README.md#labs-using-yosys-and-sky130-pdks">Labs using Yosys and Sky130 PDKs</a></li>
+</ul>
+
+<h2><a href="https://github.com/mdzakirhussain/RTLDesignusingVerilogwithSKY130Technology/blob/main/README.md#day-2---timing-libs-hierarchical-vs-flat-synthesis-and-efficient-flop-coding-styles-1">Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles</a></h2>
+
+<ul>
+<li><a href="https://github.com/mdzakirhussain/RTLDesignusingVerilogwithSKY130Technology/blob/main/README.md#introduction-to-timing-libs">Introduction to timing .libs</a></li>
+<li><a href="https://github.com/mdzakirhussain/RTLDesignusingVerilogwithSKY130Technology/blob/main/README.md#hierarchical-vs-flat-synthesis">Hierarchical vs Flat Synthesis</a></li>
+<li><a href="https://github.com/mdzakirhussain/RTLDesignusingVerilogwithSKY130Technology/blob/main/README.md#various-flop-coding-styles-and-optimization">Various Flop Coding Styles and optimization</a></li>
+</ul>
+
+<h2>Day 3 - Combinational and sequential optmizations</h2>
+
+<ul>
+<li>Introduction to optimizations</li>
+<li>Combinational logic optimizations</li>
+<li>Sequential logic optimizations</li>
+<li>Sequential optimzations for unused outputs</li>
+</ul>
+
+<h2>Day 4 - GLS, blocking vs non-blocking and Synthesis-Simulation mismatch</h2>
+
+<ul>
+<li>GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements</li>
+<li>Labs on GLS and Synthesis-Simulation Mismatch</li>
+<li>Labs on synth-sim mismatch for blocking statement</li>
+</ul>
+
+<h2>Day 5 - Optimization in synthesis</h2>
+
+<ul>
+<li>If Case constructs</li>
+<li>Labs on "Incomplete If Case"</li>
+<li>Labs on "Incomplete overlapping Case"</li>
+<li>for loop and for generate</li>
+<li>Labs on "for loop" and "for generate"</li>
+</ul>
+</details>
 ## Open Source Tool Chain
 
 Usually front-end RTL design is carried out using huge EDA Tools from different vendors. Even though many of the tools come with free limited versions its better to give a try for development using open-source tools. Below is the list of tools used by this repo.
