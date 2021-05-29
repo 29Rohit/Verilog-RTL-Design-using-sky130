@@ -27,7 +27,7 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
 Usually front-end RTL design is carried out using huge EDA Tools from different vendors. Even though many of the tools come with free limited versions its better to give a try for development using open-source tools. Below is the list of tools used by this repo.
 
 ### Part 1 - Setup the lab instance with libraries and verilog files
-### 1) iverilog
+1) iverilog
 
 iverilog is the tool used for compiling and simulation purpose. Simulation is the process of creating models that mimic the behavior of the device. Tool performs macro preprocessing, compilation, elaboration, optional optimizations and finally code generation. For more details about the tool refer the [wiki](https://iverilog.fandom.com/wiki/User_Guide).
 
