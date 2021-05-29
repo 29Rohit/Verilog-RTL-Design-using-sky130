@@ -129,9 +129,16 @@ To properly model any combinational logic in verilog the sensitivity list must c
 ## Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
 ### Part 1 - Introduction to timing .libs
+
+![l2](https://user-images.githubusercontent.com/20563301/120070250-33704800-c0a7-11eb-950f-a9fe915c8505.PNG)
+
 ```
 vim ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib : shows the text file of sky130_fd_sc_hd__tt_-025C_1v80.lib
 ```
+
+![l1](https://user-images.githubusercontent.com/20563301/120070269-43882780-c0a7-11eb-8c7b-34718e909baf.PNG)
+
+
 Above show the text file of sky130_fd_sc_hd__tt_-025C_1v80.lib
 We have seen that a .lib file is a collection of different flavours of standard cells with nets. In this workshop, we use the **sky130_fd_sc_hd_tt_025C_1v80.lib**. Looking in depth into the naming of this lib file, it denotes the following:
 
@@ -147,6 +154,10 @@ tt --> Typical Process
 
 1v80 --> Voltage 
 Above paraments determine how fast/slow silicon works depending upon its respective variations. It contain various different flavor of gates ,its power leakage,size etc. Area and Power of gate is inversely proportional to delay.
+
+
+![image](https://user-images.githubusercontent.com/20563301/120070366-c7421400-c0a7-11eb-86bb-f4e6fa8e3532.png)
+
 ```
 •	syn off : removes all color text	
 •	se hls: : mark the beginning of cell
@@ -182,7 +193,17 @@ show multiple_modules : show the circuit diagram of multiple modules in Hierarch
 
 ```
 
+![h3](https://user-images.githubusercontent.com/20563301/120070726-95ca4800-c0a9-11eb-8af1-c891629f7d68.PNG)
+
+
+![h2](https://user-images.githubusercontent.com/20563301/120070428-24d66080-c0a8-11eb-9bb6-a624c3a66b49.PNG)
+
+
+![h1](https://user-images.githubusercontent.com/20563301/120070432-299b1480-c0a8-11eb-9d30-8c9c9e33dd97.PNG)
+
+
 ### Flat Synthesis
+
 
 Run the below command to flatten the synthesized design
 
@@ -207,10 +228,15 @@ write_verilog -noattr multiple_modules_flat.v: dump the Verilog netlist file of 
 show multiple_modules show the circuit diagram of multiple modules in Flat Synthesis 
 
 ```
+![f1](https://user-images.githubusercontent.com/20563301/120070774-c3af8c80-c0a9-11eb-87bf-4a22eb4dd17a.PNG)
+
+![f2](https://user-images.githubusercontent.com/20563301/120070778-c7431380-c0a9-11eb-9311-02811dfd934a.PNG)
 
 The synthesized design looks as shown below if we run `show` command after flattening the design. Even the netlist will be flattened and this can be viewed by writing the netlist.
 
-![Flat Synthesis](images/synth_flat.png)
+![f3](https://user-images.githubusercontent.com/20563301/120070786-cf9b4e80-c0a9-11eb-9656-c07e02b20c4a.PNG)
+
+
 
 ### Submodule Level Synthesis
 
@@ -224,19 +250,23 @@ Why it is needed? Reasons:-
 1. when we have multiple instance of same module.
 2. to reduce the load by executing one at a time for tool which is working for massive machine.
 
+![subm2](https://user-images.githubusercontent.com/20563301/120070796-e17cf180-c0a9-11eb-803f-d043cb04174c.PNG)
+
+![subm1](https://user-images.githubusercontent.com/20563301/120070803-e80b6900-c0a9-11eb-8a66-5adf25961fd4.PNG)
+
 
 ### Part 3 - Efficient Flip-flop coding styles and Optimizations
 
  ###  Flip Flops
--	The disadvantage of combinational circuit is they have glitch in output waveform which is created due proportional delay in gates.
--	In order to avoid glitch we use flip flop which store the bit to make the output waveform stable for next combinational circuit.
--	Reset/set help the flip flop to stop the bit. 
+-The disadvantage of combinational circuit is they have glitch in output waveform which is created due proportional delay in gates.
+-In order to avoid glitch we use flip flop which store the bit to make the output waveform stable for next combinational circuit.
+-Reset/set help the flip flop to stop the bit. 
 
 There are Two Types of Reset/set in Flip Flop
 1.	Asynchronous Reset/Set: reset/set happen irrespective of clock.
 2.	 Synchronous Reset/Set : reset/set happen along with clock.
 
-Some Codes of Asynchronous Reset/Set and of Synchronous Reset/Set
+Some Commands used for Synthesis of Asynchronous Reset/Set and of Synchronous Reset/Set
 
 ```
 $yosys
@@ -254,6 +284,22 @@ yosys> abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> show 
 
 ```
+Output of Asynchronous reset through gtkwave and yosys Synthesis
+
+![1](https://user-images.githubusercontent.com/20563301/120070903-6700a180-c0aa-11eb-9ade-20bbf6dd98fd.PNG)
+
+![2](https://user-images.githubusercontent.com/20563301/120070911-6cf68280-c0aa-11eb-8dda-7f3b212b01ba.PNG)
+
+![9](https://user-images.githubusercontent.com/20563301/120070921-7a137180-c0aa-11eb-80eb-e98e57e2eaf0.PNG)
+
+Output of Synchronous reset through gtkwave and yosys Synthesis
+
+![6](https://user-images.githubusercontent.com/20563301/120071119-5d2b6e00-c0ab-11eb-88cf-1409837dd20f.PNG)
+
+![7](https://user-images.githubusercontent.com/20563301/120071123-63214f00-c0ab-11eb-90be-6b5452f9ca26.PNG)
+
+![11](https://user-images.githubusercontent.com/20563301/120071133-6caab700-c0ab-11eb-91d2-8b3f4cb9d318.PNG)
+
 
 •	The schematic generated by Yosys for RTL of asynchronous reset d-flip flop shows a flop with a invertor.
 
@@ -266,6 +312,19 @@ Special Cases:
 •	write_verilog _noattr mult2_net.v: dump the Verilog netlist in yosys synthesis.
 •	!vim mult2.v: display the text file of output file in yosys.
 ```
+Output of mult2
+
+![sc1](https://user-images.githubusercontent.com/20563301/120071197-c3b08c00-c0ab-11eb-89e0-7d36031de1bc.PNG)
+
+![sc2](https://user-images.githubusercontent.com/20563301/120071205-cf9c4e00-c0ab-11eb-9e9d-1f2a8deb489c.PNG)
+
+Output of mult8
+
+![sc3](https://user-images.githubusercontent.com/20563301/120071227-eb075900-c0ab-11eb-9e19-8fb85420d95f.PNG)
+
+![sc4](https://user-images.githubusercontent.com/20563301/120071229-efcc0d00-c0ab-11eb-9cbf-909a2b9a1df7.PNG)
+
+
 ## Day 3 - Combinational and sequential optimizations
 
 ### Part 1 - Introduction to optimizations
@@ -295,12 +354,63 @@ b)	Advanced :
 •	opt_clean –purge: It optimize and cleans the unused states in output file.
 •	In order to optimize  multiple module we need to first flatten it then use op_clean –purge and synthesis the netlist file.
 ```
+
+- Output of optimization of 2x1 MUX
+
+![c3](https://user-images.githubusercontent.com/20563301/120071522-6f0e1080-c0ad-11eb-8706-97dedab6d5bc.PNG)
+
+![c1](https://user-images.githubusercontent.com/20563301/120071527-759c8800-c0ad-11eb-9202-d429584ef604.PNG)
+
+![c2](https://user-images.githubusercontent.com/20563301/120071534-7af9d280-c0ad-11eb-93a7-4c4c1db11962.PNG)
+
+-Output of optimization of multiple modules in combinational circuit
+
+![c4](https://user-images.githubusercontent.com/20563301/120071628-d6c45b80-c0ad-11eb-8aa1-ec5ea958ebb4.PNG)
+
+![multiple module c5](https://user-images.githubusercontent.com/20563301/120071634-ddeb6980-c0ad-11eb-866c-94c11a2d0d32.PNG)
+
+![c7](https://user-images.githubusercontent.com/20563301/120071639-e2178700-c0ad-11eb-88b1-895283f40914.PNG)
+
+![c6](https://user-images.githubusercontent.com/20563301/120071644-e479e100-c0ad-11eb-8409-88e1cd2c327d.PNG)
+
+
 ### Part 3 - Sequential logic optimizations (Labs)
 ```
-•	gvim dff_const1.v –o dff_const2.v : open the text file of dff_cons1.v and dff_cons2.v simultaneously. 
+-gvim dff_const1.v –o dff_const2.v : open the text file of dff_cons1.v and dff_cons2.v simultaneously. 
 ```
-### Part 4 - Sequential logic optimizations (Labs)
 
+-Output of optimization of dff_const1
+
+![s4](https://user-images.githubusercontent.com/20563301/120071836-8d284080-c0ae-11eb-892a-84e1ecc605b5.PNG)
+
+![s1](https://user-images.githubusercontent.com/20563301/120071848-9b765c80-c0ae-11eb-9680-6fa54348f5b8.PNG)
+
+![s6](https://user-images.githubusercontent.com/20563301/120071858-aa5d0f00-c0ae-11eb-841a-761194c1b8d6.PNG)
+
+-Output of optimization of dff_const3
+
+![s3](https://user-images.githubusercontent.com/20563301/120071866-b8129480-c0ae-11eb-8a45-82fe35685d45.PNG)
+
+![s2](https://user-images.githubusercontent.com/20563301/120071895-d082af00-c0ae-11eb-9bd1-4161f92ca15a.PNG)
+
+![s5](https://user-images.githubusercontent.com/20563301/120071913-ded0cb00-c0ae-11eb-8cb6-22c80ef0b7b0.PNG)
+
+
+### Part 4 Sequential optimzations for unused outputs
+```
+cp counter_opt.v counter_opt2.v : It copy the date from counter_opt text file to another text file counter_opt2.
+```
+
+Consider a 3 bit up counter show in fig below
+
+![un1](https://user-images.githubusercontent.com/20563301/120071320-5ea96600-c0ac-11eb-884f-2501a54fb151.PNG)
+
+ 
+From the fig the output of counter should be 3 bit number but when you synthesis it it should only 1 bit number because the output q is assign to 0th bit of cout and hence the synthesis will remove unused output which are not needed by the primary output.
+
+![un2](https://user-images.githubusercontent.com/20563301/120071330-6963fb00-c0ac-11eb-8c26-0bfe166b8447.PNG)
+
+ 
 
 
 
