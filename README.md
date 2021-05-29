@@ -69,56 +69,59 @@ gtkwave tb_bad_mux.vcd : It generates value change dump (.vcd) file into such a 
 
 1) yosys 
 -Afher the simulation of RTL Design with its respective Testbench, we need to perform the synthesis of deign with sky130.lib by using yosys Synthesizer. The yosys Synthesizer is a tool to convert the RTL Design file into netlist(Gate level translation) by using the standard cells like gates,combinational cells etc which are present in the .libraby file
-- The yosys setup is such that it reads the verilog files from design and read liberty from .lib and synthesizes the file and creates a netlist by write_verilog
+- The yosys setup is such that it reads the verilog files from design and read liberty from .lib and synthesizes the file and creates a netlist by write_verilog.
 - RTL Design is basically a behavioral representation of verilog file and netlist is file which is created by converting the design into gates and connections is made between the gates. The netlist has the same Testbench as the set of primary inputs/outputs will remain same between RTL design and Synthesized netlist.
 
 2) .lib 
-- lib files are a collection of logical modules which include logic gates like AND, OR, NOT, NAND, NOR etc which contain different fla
+- lib files are a collection of logical modules which include logic gates like AND, OR, NOT, NAND, NOR etc which contain different flavours of same gates depending upon the input and seppedof circuit.
+-  Combinational delays present in a logic path determine the maximum speed and performance of a logic circuit.In order to get maximum performance from a circuit, we need fast cells to minimize the clock delays and minimum setup time of circuit.
+-  In the same way, in order to avoid Hold violations in a logic path, we have to use Slow cells to synchronize the hold time for logic path.All these different types of fast and slow cells are present in a .lib file to be used by the synthesis software tool
 
+3) Faster Cells vs Slower Cells
+- A cell delay in the digital logic circuit depends on the load of the circuit which here is Capacitance.
+- Faster the charging / discharging of the capacitance --> Lesser is the Cell Delay.
+- In order to charge/discharge the capacitance faster, we use wider transistors that can source more current. This will help us to reduce the cell delay but at the same time, wider transistors consumer more power and area. Similarly, using narrower transistors help in reduced area and power but the circuit will have a higher cell delay. Hence, we have to compromise on area and power if we are to design a circuit with low cell delay.
 
-* Use following command to install yosys on Ubuntu machine
+4) Constraints
+A Constraint is a guidance file given to a synthesizer in order to enable an optimum implementation of the logic circuit by selecting the appropriate flavour of cells (fast or slow) to get minimum delays.
 
+5) Practical Synthesis using yosys
+
+The Commands used for Synthesis using yosys
 ```
-sudo apt install yosys
-```
+$yosys                                                                             --> invokes YOSYS tool
 
-* Invoke yosys by running following command
+yosys> read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib           --> reads the corresponding library file
 
-```
-yosys
-```
+yosys> read_verilog good_mux.v                                                     --> reads the Verilog script
 
-* Read library using following command
+yosys> synth -top good_mux                                                         --> reads the top level module
 
-```
-read_liberty -lib my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-```
+yosys> abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib                    --> converts the logic file to netlist
 
-* Read design files using following command
-
-```
-read_verilog ../design_file.v
-```
-
-* Synthesize the design module
-
-```
-synth -top design_file
+yosys> show                                                                        --> Final netlist output display
 ```
 
-* Generate the netlist
 
-```
-abc -liberty my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-```
-* View the realized logic
-
-```
-show
-```
 ### Part 4 -Labs using Yosys and Sky130 for 2:1 Multiplex
 
-To properly model any combinational logic in verilog the sensitivity list must contain all inputs, else the design will not function as expected. To demonstrate this concept consider a simple multiplexer as example. Below figure shows good and bad modelling style along with the simulation waveform. Left side of the figure has proper verilog code for the mux. The code shown in right side has only select input in sensitivity list hence the output will not change if select input is constant and inputs are changing.
+-We will perform a synthesis example of the 2:1 Multiplexer RTL design using YOSYS with appropriate library files from SKY130 technology that we cloned into the directory.
+-The yosys Commands used are as follows
+```
+osys 
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog good_mux.v
+
+synth -top good_mux
+
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+show
+```
+
+
+
 
 ## Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
