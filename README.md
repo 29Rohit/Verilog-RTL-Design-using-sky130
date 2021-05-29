@@ -108,7 +108,8 @@ yosys> show                                                                     
 -We will perform a synthesis example of the 2:1 Multiplexer RTL design using YOSYS with appropriate library files from SKY130 technology that we cloned into the directory.
 -The yosys Commands used are as follows
 ```
-osys 
+yosys 
+
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 read_verilog good_mux.v
