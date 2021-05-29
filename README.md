@@ -49,7 +49,8 @@ iverilog design_file.v test_bench.v
 ./a.out
 ```
 
-### 2) gtkwave
+### Part 2 -Labs using iverilog and gtkwave
+2) gtkwave
 
 The simulator generates value change dump (.vcd) file this can be viewed as wave using gtkwave waveform viewer.
 
@@ -65,7 +66,8 @@ sudo apt install gtkwave
 gtkwave test_bench.vcd
 ```
 
-### sky130 libraries
+### Part 3 -Introduction to Yosys and Logic synthesis
+3) sky130 libraries
 
 sky130 pdk library is used for mapping the purpose during synthesis. The design gets mapped to standard cell definitions present in "sky130_fd_sc_hd__tt_025C_1v80.lib" library. The necessary files for synthesis are well organized in the [git repository](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git). For further details about the library refer [wiki](https://skywater-pdk.readthedocs.io/en/latest/contents.html).
 
@@ -75,7 +77,8 @@ sky130 pdk library is used for mapping the purpose during synthesis. The design 
 git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 ```
 
-### yosys
+
+yosys
 
 yosys is used for synthesis. Synthesizer takes the design file and technology library file as input and produces netlist. Syntesis is the process in which the design is mapped to standard cells defined in the technology library. Here we are using SKY130 Technology library file. For further details about the tool refer the [documentation](http://www.clifford.at/yosys/documentation.html).
 
@@ -119,13 +122,13 @@ abc -liberty my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 show
 ```
-### Modelling Combinational Logic
+### Part 4 -Labs using Yosys and Sky130 for 2:1 Multiplex
 
 To properly model any combinational logic in verilog the sensitivity list must contain all inputs, else the design will not function as expected. To demonstrate this concept consider a simple multiplexer as example. Below figure shows good and bad modelling style along with the simulation waveform. Left side of the figure has proper verilog code for the mux. The code shown in right side has only select input in sensitivity list hence the output will not change if select input is constant and inputs are changing.
 
 ## Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
-### SKY130RTL D2SK1 - Introduction to timing .libs
+### Part 1 - Introduction to timing .libs
 ```
 vim ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib : shows the text file of sky130_fd_sc_hd__tt_-025C_1v80.lib
 ```
@@ -150,6 +153,8 @@ Above paraments determine how fast/slow silicon works depending upon its respect
 •	sp  ../ my_lib/verilog_model/sky130_fd_sc_hd__a2111o.behavioral.v :  shows the behavioral modelling of a21110.
 •	vsp : add a text file along with existing file.
 ```
+### Part 2 - Hierarchical vs Flat Synthesis
+
 Consider a simple example `multiple_modules` which instntiates two modules `sub_module1` and `sub_module2`. The sub-modules realize and logic and or logic respectively.
 
 ### Hierarchial Synthesis
@@ -261,10 +266,13 @@ Special Cases:
 •	write_verilog _noattr mult2_net.v: dump the Verilog netlist in yosys synthesis.
 •	!vim mult2.v: display the text file of output file in yosys.
 ```
-### Day 3 - Combinational and sequential optimizations
+## Day 3 - Combinational and sequential optimizations
+
+### Part 1 - Introduction to optimizations
+
 
 1)	Combinational Optimization: It squeezing the combinational logic to most optimized design in order to save area and power savings.
-2)	
+	
 i)	There are 2 types of combinational optimization
 
 (a)	Constant Propogation: it is direct optimization technique which reduces series of gate to single to get constant propogation delay.
@@ -282,15 +290,16 @@ b)	Advanced :
 •	Sequential Logic cloning: It is a optimization technique which involves cloning of flip flop which has large positive slack to reduce the router delay between flops.
 
 
-3)	Combinational Optimization (Labs)
+### Part 2 - Combinational logic optimizations (Labs)
 ```
 •	opt_clean –purge: It optimize and cleans the unused states in output file.
 •	In order to optimize  multiple module we need to first flatten it then use op_clean –purge and synthesis the netlist file.
 ```
-4)	Sequential Opitimization Labs
+### Part 3 - Sequential logic optimizations (Labs)
 ```
 •	gvim dff_const1.v –o dff_const2.v : open the text file of dff_cons1.v and dff_cons2.v simultaneously. 
 ```
+### Part 4 - Sequential logic optimizations (Labs)
 
 
 
