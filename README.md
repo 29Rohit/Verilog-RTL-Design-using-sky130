@@ -69,6 +69,8 @@ gtkwave tb_bad_mux.vcd : It generates value change dump (.vcd) file into such a 
 ![7](https://user-images.githubusercontent.com/20563301/120075573-70e0cf80-c0bf-11eb-9ed3-b52b709c529d.PNG)
 
 
+![1](https://user-images.githubusercontent.com/20563301/120076148-c0c09600-c0c1-11eb-9963-c6e8829e2e08.PNG)
+
 
 ### Part 3 -Introduction to Yosys and Logic synthesis
 
@@ -107,6 +109,15 @@ yosys> abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib             
 yosys> show                                                                        --> Final netlist output display
 ```
 
+![5](https://user-images.githubusercontent.com/20563301/120076009-4728a800-c0c1-11eb-9345-897f6b55c49d.PNG)
+
+
+![6](https://user-images.githubusercontent.com/20563301/120076028-560f5a80-c0c1-11eb-9151-c42281f2e390.PNG)
+
+
+![10](https://user-images.githubusercontent.com/20563301/120076041-66273a00-c0c1-11eb-89ae-1f6afcafb3da.PNG)
+
+
 
 ### Part 4 -Labs using Yosys and Sky130 for 2:1 Multiplex
 
@@ -127,6 +138,7 @@ show
 ```
 
 
+![2](https://user-images.githubusercontent.com/20563301/120076119-aab2d580-c0c1-11eb-857c-8504e6f10cf3.PNG)
 
 
 ## Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
