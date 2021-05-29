@@ -26,61 +26,55 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
 
 Usually front-end RTL design is carried out using huge EDA Tools from different vendors. Even though many of the tools come with free limited versions its better to give a try for development using open-source tools. Below is the list of tools used by this repo.
 
+RTL Design - It consists of an actual verilog code / a set of verilog codes that have the functionality to meet the required design specifications of the circuit Testbench - It is a setup that one uses to apply a set of  stimuli (test-case vector) to check the functionalility of the design file.
+
+The simulator is loaded with the design and its respective testbench file after which it looks for changes in the input signals and depending on the change, the output is evaluated. These changes in input and corresponding output values are dumped in a special format file called "value change dump" (.vcd) file. This file can be pictorially represented in waveforms using a waveform tool like gtkwave.
+
+
 ### Part 1 - Setup the lab instance with libraries and verilog files
-1) iverilog
 
-iverilog is the tool used for compiling and simulation purpose. Simulation is the process of creating models that mimic the behavior of the device. Tool performs macro preprocessing, compilation, elaboration, optional optimizations and finally code generation. For more details about the tool refer the [wiki](https://iverilog.fandom.com/wiki/User_Guide).
-
-* Use following command to install iverilog on Ubuntu machine
+Firstly, we have to clone 2 separate repositories namely vsdflow and sky130RTLDesignAndSynthesisWorkshop which contain the required library files and verilog design files to perform the simulations and logic synthesis parts of the workshop. It can be done using basic linux command gitclone filelink
 
 ```
-sudo apt install iverilog
-```
-
-* Compile the design files and associated test bench using following command, it produces a executable
-
-```
-iverilog design_file.v test_bench.v
-```
-
-* Execute the a.out file to produce vcd file
-
-```
-./a.out
-```
-
-### Part 2 -Labs using iverilog and gtkwave
-2) gtkwave
-
-The simulator generates value change dump (.vcd) file this can be viewed as wave using gtkwave waveform viewer.
-
-* Use following command to install gtkwave on Ubuntu machine
-
-```
-sudo apt install gtkwave
-```
-
-* Run following command to view the waveform
-
-```
-gtkwave test_bench.vcd
-```
-
-### Part 3 -Introduction to Yosys and Logic synthesis
-3) sky130 libraries
-
-sky130 pdk library is used for mapping the purpose during synthesis. The design gets mapped to standard cell definitions present in "sky130_fd_sc_hd__tt_025C_1v80.lib" library. The necessary files for synthesis are well organized in the [git repository](https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git). For further details about the library refer [wiki](https://skywater-pdk.readthedocs.io/en/latest/contents.html).
-
-* Clone the repository using following command
-
-```
+git clone https://github.com/kunalg123/vsdflow.git. 
 git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 ```
 
+We are given a default set of files and libraries shown below to work on using the practical lab instance
 
-yosys
 
-yosys is used for synthesis. Synthesizer takes the design file and technology library file as input and produces netlist. Syntesis is the process in which the design is mapped to standard cells defined in the technology library. Here we are using SKY130 Technology library file. For further details about the tool refer the [documentation](http://www.clifford.at/yosys/documentation.html).
+
+
+
+
+### Part 2 -Labs using iverilog and gtkwave
+
+The Simulator is tool which is uses to look for the changes in input signals and check if the input signals are following the given design by dumping the vcd file of design and teshbench into itself. 
+
+The follwing commands are used for simulation using gtkwave and iverilog
+
+```
+sudo apt install iverilog : to enter into root mode to install the iverilog files.
+
+iverilog design_file.v test_bench.v : It combinees the design files and associated test bench to produces a executable file.
+
+./a.out : Dump the iverilog file to produce vcd file.
+
+gtkwave tb_bad_mux.vcd : It generates value change dump (.vcd) file into such a file that can be viewed for waveform using gtkwave waveform viewer.
+```
+
+
+
+### Part 3 -Introduction to Yosys and Logic synthesis
+
+1) yosys 
+-Afher the simulation of RTL Design with its respective Testbench, we need to perform the synthesis of deign with sky130.lib by using yosys Synthesizer. The yosys Synthesizer is a tool to convert the RTL Design file into netlist(Gate level translation) by using the standard cells like gates,combinational cells etc which are present in the .libraby file
+- The yosys setup is such that it reads the verilog files from design and read liberty from .lib and synthesizes the file and creates a netlist by write_verilog
+- RTL Design is basically a behavioral representation of verilog file and netlist is file which is created by converting the design into gates and connections is made between the gates. The netlist has the same Testbench as the set of primary inputs/outputs will remain same between RTL design and Synthesized netlist.
+
+2) .lib 
+- lib files are a collection of logical modules which include logic gates like AND, OR, NOT, NAND, NOR etc which contain different fla
+
 
 * Use following command to install yosys on Ubuntu machine
 
