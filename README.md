@@ -421,7 +421,7 @@ b)Advanced :
 -gvim dff_const1.v –o dff_const2.v : open the text files of dff_cons1.v and dff_cons2.v simultaneously. 
 ```
 
--Output of optimization of dff_const1
+- Output of optimization of dff_const1
 
 ![s4](https://user-images.githubusercontent.com/20563301/120071836-8d284080-c0ae-11eb-892a-84e1ecc605b5.PNG)
 
@@ -432,7 +432,7 @@ b)Advanced :
 ![s6](https://user-images.githubusercontent.com/20563301/120071858-aa5d0f00-c0ae-11eb-841a-761194c1b8d6.PNG)
 
 
--Output of optimization of dff_const3
+- Output of optimization of dff_const3
 
 ![s3](https://user-images.githubusercontent.com/20563301/120071866-b8129480-c0ae-11eb-8a45-82fe35685d45.PNG)
 
