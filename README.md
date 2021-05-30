@@ -43,7 +43,7 @@ RTL Design - It consists of an actual verilog code / a set of verilog codes that
 The simulator is loaded with the design and its respective testbench file after which it looks for changes in the input signals and depending on the change, the output is evaluated. These changes in input and corresponding output values are dumped in a special format file called "value change dump" (.vcd) file. This file can be pictorially represented in waveforms using a waveform tool like gtkwave.
 
 
-###  * Part 1 - Setup the lab instance with libraries and verilog files
+### Part 1 - Setup the lab instance with libraries and verilog files
 
 Firstly, we have to clone 2 separate repositories namely vsdflow and sky130RTLDesignAndSynthesisWorkshop which contain the required library files and verilog design files to perform the simulations and logic synthesis parts of the workshop. It can be done using basic linux command gitclone filelink
 
