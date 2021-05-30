@@ -15,15 +15,24 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
   * [Part 3 - Introduction to Yosys and Logic synthesis](#Part-3-Introduction-to-Yosys-and-Logic-synthesis)
   * [Part 4 - Labs using Yosys and Sky130 for 2:1 Multiplex](#Part-4-Labs-using-Yosys-and-Sky130-for-2:1-Multiplex)
 - [Day 2 Timing libs Hierarical vs Flat Synthesis and efficient Flop Coding Styles](#Day-2-Timing-libs-Hierarical-vs-Flat-Synthesis-and-efficient-Flop-Coding-Styles)
-  * [Sensitivity List for Combinational Logic](#Sensitivity-List-for-Combinational-Logic)
-  * [Modelling Flip Flops](#Modelling-Flip-Flops)
+  * [Part 1 - Introduction to timing .libs](#Part-1-Introduction-to-timing-.libs)
+  * [Part 2 - Hierarchical vs Flat Synthesis](#Part-2-Hierarchical-vs-Flat-Synthesis)
+  * [Part 3 - Efficient Flip-flop coding styles and Optimizations](#Part-3-Efficient-Flip-flop-coding-styles-and-Optimizations) 
 - [Day 3 Combinational and sequential optimization](#Day-3-Combinational-and-sequential-optimization)  
-  * [Hierarchial Synthesis](#Hierarchial-Synthesis)
-  * [Flat Synthesis](#Flat-Synthesis)
-  * [Submodule Level Synthesis](#Submodule-Level-Synthesis)
+  * [Part 1 - Introduction to optimizations](#Part-1-Introduction-to-optimizations)
+  * [Part 2 - Combinational logic optimizations (Labs)](#Part-2-Combinational-logic-optimizations-(Labs))
+  * [Part 3 - Sequential logic optimizations (Labs)](#Part-3-Sequential-logic-optimizations-(Labs))
+  * [Part 4 - Sequential optimzations for unused outputs](#Part-4-Sequential-optimzations-for-unused-outputs)
 - [Day 4 GLS blocking vs non blocking and Synthesis Simulation mismatch](#Day-4-GLS-,blocking-vs-non-blocking-and-Synthesis-Simulation-mismatch)
-  * [Synthesizing Multipliers](#Synthesizing-Multipliers)
+  * [Part 1 - GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements](#Part-1-GLS,-Synthesis-Simulation-mismatch-and-Blocking/Non-blocking-statements)
+  * [Part 2 - Labs on GLS and Synthesis-Simulation Mismatch](#Part-2-Labs-on-GLS-and-Synthesis-Simulation-Mismatch)
+  * [Part 3 - Labs on synth-sim mismatch for blocking statement](#Part-3-Labs-on-synth-sim-mismatch-for-blocking-statement)
 - [Day 5 If, case, for loop and for generate](#Day-5-If-case-for-loop-and-for-generate)
+   * [Part 1 - If Case constructs](#Part-1-If-Case-constructs)
+   * [Part 2 - Labs on "Incomplete If Case"](#Part-2-Labs-on-"Incomplete-If-Case")
+   * [Part 3 - Labs on "Incomplete overlapping Case"](#Part-3-Labs-on-"Incomplete-overlapping-Case")
+   * [Part 4 - for loop and for generate](#Part-4-for-loop-and-for-generate)
+   * [Part 5 - Labs on "for loop" and "for generate"](#Part-5-Labs-on-"for-loop"-and"-for-generate")
 
 ## Day 1 Introduction to Verilog RTL Design and Synthesis
 
@@ -584,13 +593,15 @@ To get GLS output
 ### Part 1 - If Case constructs
 
 1.	If-else : Consider a if-else example
-
+```
 if <cond1>
    C1;
 else if <cond2>
   C2:
 else
   C3;
+  ```
+  
 -	In the above statement the if cond1 will check and if it is true then it will executed and if it is false then it will go to else like this it will check every if condition and finally if all the conditions are false it will executed the final else statement.They are always used inside always block with req variable.
 
 -There are some danger while writing if-else condition
