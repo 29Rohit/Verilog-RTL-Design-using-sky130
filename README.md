@@ -6,23 +6,24 @@ This repository contains the usage of tools like iverilog, gtkwave and yosys for
 SKY130 is the hardware industry's first open-source process design kit (PDK) released by SkyWater Technology Foundry in collaboration with Google giving all hardware design experts and aficionados, a worldwide access to their IP functions and open source ASICs. More details [here.](https://github.com/google/skywater-pdk).
 
 This particular workshop covers the various aspects of design in Verilog HDL both theoretically and practically with labs using open-source softwares through their VSD-IAT portal. Beginning with an introduction to digital design using Verilog HDL and various libraby, the instructors cover digital design steps that include design, functional simulation, test bench based validation of the design functionality and logic Synthesis with optimization. Further, we learn about efficient verilog coding styles that result in a predictable logic in Silicon.
+
 ## Table of Contents
 
-- [Day 1 - Introduction to Verilog RTL Design and Synthesis](#Day 1 - Introduction to Verilog RTL Design and Synthesis)
-  * [iverilog](#iverilog)
+- [Day 1 Introduction to Verilog RTL Design and Synthesis](#Day-1-Introduction-to-Verilog-RTL-Design-and-Synthesis)
+  * [Part 1 - Setup the lab instance with libraries and verilog files](#Part 1 - Setup the lab instance with libraries and verilog files)
   * [gtkwave](#gtkwave)
   * [sky130 libraries](#sky130-libraries)
   * [yosys](#yosys)
-- [Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles](#Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles)
+- [Day 2 Timing libs Hierarical vs Flat Synthesis and efficient Flop Coding Styles](#Day-2-Timing-libs-Hierarical-vs-Flat-Synthesis-and-efficient-Flop-Coding-Styles)
   * [Sensitivity List for Combinational Logic](#Sensitivity-List-for-Combinational-Logic)
   * [Modelling Flip Flops](#Modelling-Flip-Flops)
-- [Synthesis Techniques](#Synthesis-Techniques)
-  * [Hierarchial Synthesis](#Hierarchial-Synthesis)
+- [Day 3 Combinational and sequential optimization](#Day-3-Combinational-and-sequential-optimization)  * [Hierarchial Synthesis](#Hierarchial-Synthesis)
   * [Flat Synthesis](#Flat-Synthesis)
   * [Submodule Level Synthesis](#Submodule-Level-Synthesis)
-- [Beauty of Optimizations](#Beauty-of-Optimizations)
+- [Day 4 GLS blocking vs non blocking and Synthesis Simulation mismatch](#Day-4-GLS-,blocking-vs-non-blocking-and-Synthesis-Simulation-mismatch)
   * [Synthesizing Multipliers](#Synthesizing-Multipliers)
-## Day 1 - Introduction to Verilog RTL Design and Synthesis
+- [Day 5 Optimization in synthesis](#Day-5-Optimization-in-synthesis)
+## Day 1 Introduction to Verilog RTL Design and Synthesis
 
 Usually front-end RTL design is carried out using huge EDA Tools from different vendors. Even though many of the tools come with free limited versions its better to give a try for development using open-source tools. Below is the list of tools used by this repo.
 
@@ -141,7 +142,7 @@ show
 ![2](https://user-images.githubusercontent.com/20563301/120076119-aab2d580-c0c1-11eb-857c-8504e6f10cf3.PNG)
 
 
-## Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
+## Day 2 Timing libs Hierarical vs Flat Synthesis and efficient Flop Coding Styles
 
 ### Part 1 - Introduction to timing .libs
 
@@ -359,7 +360,7 @@ Output of mult8
 
 
 
-## Day 3 - Combinational and sequential optimizations
+## Day 3 Combinational and sequential optimization
 
 ### Part 1 - Introduction to optimizations
 
@@ -457,6 +458,8 @@ Consider a 3 bit up counter show in fig below
 From the fig the output of counter should be 3 bit number but when you synthesis it it should only 1 bit number because the output q is assign to 0th bit of cout and hence the synthesis will remove unused output which are not needed by the primary output.
 
 ![un2](https://user-images.githubusercontent.com/20563301/120071330-6963fb00-c0ac-11eb-8c26-0bfe166b8447.PNG)
+
+## Day 4 GLS blocking vs non blocking and Synthesis Simulation mismatch
 
  
 
