@@ -133,7 +133,7 @@ yosys> show                                                                     
 
 ### Part 4 - Labs using Yosys and Sky130 for 2:1 Multiplex
 
--We will perform a synthesis example of the 2:1 Multiplexer RTL design using YOSYS with appropriate library files from SKY130 technology that we cloned into the directory.
+- We will perform a synthesis example of the 2:1 Multiplexer RTL design using YOSYS with appropriate library files from SKY130 technology that we cloned into the directory.
 -The yosys Commands used are as follows
 ```
 yosys 
