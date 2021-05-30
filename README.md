@@ -10,10 +10,10 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
 ## Table of Contents
 
 - [Day 1 Introduction to Verilog RTL Design and Synthesis](#Day-1-Introduction-to-Verilog-RTL-Design-and-Synthesis)
-  * [Part 1 - Setup the lab instance with libraries and verilog files](#Part 1 - Setup the lab instance with libraries and verilog files)
-  * [gtkwave](#gtkwave)
-  * [sky130 libraries](#sky130-libraries)
-  * [yosys](#yosys)
+  * [ Part 1-Setup the lab instance with libraries and verilog files](#Part-1-Setup-the-lab-instance-with-libraries-and-verilog-files)
+  * [Part 2 - Labs using iverilog and gtkwave](#Part-2-Labs-using-iverilog-and-gtkwave)
+  * [Part 3 -Introduction to Yosys and Logic synthesis](#Part-3-Introduction-to-Yosys-and-Logic-synthesis)
+  * [Part 4 -Labs using Yosys and Sky130 for 2:1 Multiplex](#Part-4-Labs-using-Yosys-and-Sky130-for-2:1-Multiplex)
 - [Day 2 Timing libs Hierarical vs Flat Synthesis and efficient Flop Coding Styles](#Day-2-Timing-libs-Hierarical-vs-Flat-Synthesis-and-efficient-Flop-Coding-Styles)
   * [Sensitivity List for Combinational Logic](#Sensitivity-List-for-Combinational-Logic)
   * [Modelling Flip Flops](#Modelling-Flip-Flops)
@@ -34,7 +34,7 @@ RTL Design - It consists of an actual verilog code / a set of verilog codes that
 The simulator is loaded with the design and its respective testbench file after which it looks for changes in the input signals and depending on the change, the output is evaluated. These changes in input and corresponding output values are dumped in a special format file called "value change dump" (.vcd) file. This file can be pictorially represented in waveforms using a waveform tool like gtkwave.
 
 
-### Part 1 - Setup the lab instance with libraries and verilog files
+### Part 1-Setup the lab instance with libraries and verilog files
 
 Firstly, we have to clone 2 separate repositories namely vsdflow and sky130RTLDesignAndSynthesisWorkshop which contain the required library files and verilog design files to perform the simulations and logic synthesis parts of the workshop. It can be done using basic linux command gitclone filelink
 
@@ -53,7 +53,7 @@ We are given a default set of files and libraries shown below to work on using t
 
 
 
-### Part 2 -  Labs using iverilog and gtkwave
+### Part 2 - Labs using iverilog and gtkwave
 
 The Simulator is tool which is uses to look for the changes in input signals and check if the input signals are following the given design by dumping the vcd file of design and teshbench into itself. 
 
