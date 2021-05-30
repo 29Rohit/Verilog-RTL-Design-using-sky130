@@ -335,11 +335,12 @@ Output of Synchronous reset through gtkwave and yosys Synthesis
 
 2) Special Cases: 
 1.	Multiply by 2: If a 3 bit number (a) is multiply by 2 or power of 2 then output is{a,0xn} when n is bit number(2^n)
+
 2.	Multiply by 9: If a 3 bit number(a) is multiply by 9 then output is aa 
 ```
-•	write_verilog _noattr mult2_net.v: dump the Verilog netlist in yosys synthesis.
+•	write_verilog _noattr mult2_net.v: dump the Verilog netlist in yosys synthesizer.
 
-•	!vim mult2.v: display the text file of output file in yosys.
+•	!vim mult2.v: display the text file of output netlist file in yosys.
 ```
 Output of mult2
 
@@ -383,10 +384,12 @@ b)Advanced :
 
 
 ### Part 2 - Combinational logic optimizations (Labs)
+
 ```
 •	opt_clean –purge: It optimize and cleans the unused states in output file.
-•	In order to optimize  multiple module we need to first flatten it then use op_clean –purge and synthesis the netlist file.
 ```
+•	In order to optimize  multiple module we need to first flatten it then use op_clean –purge and synthesis the netlist file.
+
 
 - Output of optimization of 2x1 MUX
 
@@ -415,7 +418,7 @@ b)Advanced :
 
 ### Part 3 - Sequential logic optimizations (Labs)
 ```
--gvim dff_const1.v –o dff_const2.v : open the text file of dff_cons1.v and dff_cons2.v simultaneously. 
+-gvim dff_const1.v –o dff_const2.v : open the text files of dff_cons1.v and dff_cons2.v simultaneously. 
 ```
 
 -Output of optimization of dff_const1
