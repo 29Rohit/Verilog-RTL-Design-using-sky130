@@ -17,12 +17,14 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
 - [Day 2 Timing libs Hierarical vs Flat Synthesis and efficient Flop Coding Styles](#Day-2-Timing-libs-Hierarical-vs-Flat-Synthesis-and-efficient-Flop-Coding-Styles)
   * [Sensitivity List for Combinational Logic](#Sensitivity-List-for-Combinational-Logic)
   * [Modelling Flip Flops](#Modelling-Flip-Flops)
-- [Day 3 Combinational and sequential optimization](#Day-3-Combinational-and-sequential-optimization)  * [Hierarchial Synthesis](#Hierarchial-Synthesis)
+- [Day 3 Combinational and sequential optimization](#Day-3-Combinational-and-sequential-optimization)  
+  * [Hierarchial Synthesis](#Hierarchial-Synthesis)
   * [Flat Synthesis](#Flat-Synthesis)
   * [Submodule Level Synthesis](#Submodule-Level-Synthesis)
 - [Day 4 GLS blocking vs non blocking and Synthesis Simulation mismatch](#Day-4-GLS-,blocking-vs-non-blocking-and-Synthesis-Simulation-mismatch)
   * [Synthesizing Multipliers](#Synthesizing-Multipliers)
-- [Day 5 Optimization in synthesis](#Day-5-Optimization-in-synthesis)
+- [Day 5 If, case, for loop and for generate](#Day-5-If-case-for-loop-and-for-generate)
+
 ## Day 1 Introduction to Verilog RTL Design and Synthesis
 
 Usually front-end RTL design is carried out using huge EDA Tools from different vendors. Even though many of the tools come with free limited versions its better to give a try for development using open-source tools. Below is the list of tools used by this repo.
@@ -51,7 +53,7 @@ We are given a default set of files and libraries shown below to work on using t
 
 
 
-### Part 2 -Labs using iverilog and gtkwave
+### Part 2 -  Labs using iverilog and gtkwave
 
 The Simulator is tool which is uses to look for the changes in input signals and check if the input signals are following the given design by dumping the vcd file of design and teshbench into itself. 
 
