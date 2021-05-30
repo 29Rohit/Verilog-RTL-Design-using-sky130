@@ -10,10 +10,10 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
 ## Table of Contents
 
 - [Day 1 Introduction to Verilog RTL Design and Synthesis](#Day-1-Introduction-to-Verilog-RTL-Design-and-Synthesis)
-  * [ Part 1-Setup the lab instance with libraries and verilog files](#Part-1-Setup-the-lab-instance-with-libraries-and-verilog-files)
+  * [ Part 1 - Setup the lab instance with libraries and verilog files](#Part-1-Setup-the-lab-instance-with-libraries-and-verilog-files)
   * [Part 2 - Labs using iverilog and gtkwave](#Part-2-Labs-using-iverilog-and-gtkwave)
-  * [Part 3 -Introduction to Yosys and Logic synthesis](#Part-3-Introduction-to-Yosys-and-Logic-synthesis)
-  * [Part 4 -Labs using Yosys and Sky130 for 2:1 Multiplex](#Part-4-Labs-using-Yosys-and-Sky130-for-2:1-Multiplex)
+  * [Part 3 - Introduction to Yosys and Logic synthesis](#Part-3-Introduction-to-Yosys-and-Logic-synthesis)
+  * [Part 4 - Labs using Yosys and Sky130 for 2:1 Multiplex](#Part-4-Labs-using-Yosys-and-Sky130-for-2:1-Multiplex)
 - [Day 2 Timing libs Hierarical vs Flat Synthesis and efficient Flop Coding Styles](#Day-2-Timing-libs-Hierarical-vs-Flat-Synthesis-and-efficient-Flop-Coding-Styles)
   * [Sensitivity List for Combinational Logic](#Sensitivity-List-for-Combinational-Logic)
   * [Modelling Flip Flops](#Modelling-Flip-Flops)
@@ -34,7 +34,7 @@ RTL Design - It consists of an actual verilog code / a set of verilog codes that
 The simulator is loaded with the design and its respective testbench file after which it looks for changes in the input signals and depending on the change, the output is evaluated. These changes in input and corresponding output values are dumped in a special format file called "value change dump" (.vcd) file. This file can be pictorially represented in waveforms using a waveform tool like gtkwave.
 
 
-### Part 1-Setup the lab instance with libraries and verilog files
+### Part 1 - Setup the lab instance with libraries and verilog files
 
 Firstly, we have to clone 2 separate repositories namely vsdflow and sky130RTLDesignAndSynthesisWorkshop which contain the required library files and verilog design files to perform the simulations and logic synthesis parts of the workshop. It can be done using basic linux command gitclone filelink
 
@@ -75,7 +75,7 @@ gtkwave tb_bad_mux.vcd : It generates value change dump (.vcd) file into such a 
 ![1](https://user-images.githubusercontent.com/20563301/120076148-c0c09600-c0c1-11eb-9963-c6e8829e2e08.PNG)
 
 
-### Part 3 -Introduction to Yosys and Logic synthesis
+### Part 3 - Introduction to Yosys and Logic synthesis
 
 1) yosys 
 -Afher the simulation of RTL Design with its respective Testbench, we need to perform the synthesis of deign with sky130.lib by using yosys Synthesizer. The yosys Synthesizer is a tool to convert the RTL Design file into netlist(Gate level translation) by using the standard cells like gates,combinational cells etc which are present in the .libraby file
@@ -122,7 +122,7 @@ yosys> show                                                                     
 
 
 
-### Part 4 -Labs using Yosys and Sky130 for 2:1 Multiplex
+### Part 4 - Labs using Yosys and Sky130 for 2:1 Multiplex
 
 -We will perform a synthesis example of the 2:1 Multiplexer RTL design using YOSYS with appropriate library files from SKY130 technology that we cloned into the directory.
 -The yosys Commands used are as follows
@@ -288,10 +288,11 @@ Why it is needed? Reasons:-
 - Reset/set help the flip flop to stop the bit. 
 
 - There are Two Types of Reset/set in Flip Flop
-1.Asynchronous Reset/Set: reset/set happen irrespective of clock.
-2.Synchronous Reset/Set : reset/set happen along with clock.
 
--Some Commands used for Synthesis of Asynchronous Reset/Set and of Synchronous Reset/Set
+1. Asynchronous Reset/Set: reset/set happen irrespective of clock.
+2. Synchronous Reset/Set : reset/set happen along with clock.
+
+- Some Commands used for Synthesis of Asynchronous Reset/Set and of Synchronous Reset/Set
 
 ```
 $yosys
@@ -309,7 +310,7 @@ yosys> abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> show 
 
 ```
-Output of Asynchronous reset through gtkwave and yosys Synthesis
+Outputs of Asynchronous reset through gtkwave and yosys Synthesis
 
 ![1](https://user-images.githubusercontent.com/20563301/120070903-6700a180-c0aa-11eb-9ade-20bbf6dd98fd.PNG)
 
@@ -320,7 +321,7 @@ Output of Asynchronous reset through gtkwave and yosys Synthesis
 ![9](https://user-images.githubusercontent.com/20563301/120070921-7a137180-c0aa-11eb-80eb-e98e57e2eaf0.PNG)
 
 
-Output of Synchronous reset through gtkwave and yosys Synthesis
+Outputs of Synchronous reset through gtkwave and yosys Synthesis
 
 ![6](https://user-images.githubusercontent.com/20563301/120071119-5d2b6e00-c0ab-11eb-88cf-1409837dd20f.PNG)
 
@@ -345,7 +346,7 @@ Output of Synchronous reset through gtkwave and yosys Synthesis
 
 •	!vim mult2.v: display the text file of output netlist file in yosys.
 ```
-Output of mult2
+Outputs of mult2
 
 ![sc1](https://user-images.githubusercontent.com/20563301/120071197-c3b08c00-c0ab-11eb-89e0-7d36031de1bc.PNG)
 
@@ -353,7 +354,7 @@ Output of mult2
 ![sc2](https://user-images.githubusercontent.com/20563301/120071205-cf9c4e00-c0ab-11eb-9e9d-1f2a8deb489c.PNG)
 
 
-Output of mult8
+Outputs of mult8
 
 ![sc3](https://user-images.githubusercontent.com/20563301/120071227-eb075900-c0ab-11eb-9e19-8fb85420d95f.PNG)
 
@@ -394,7 +395,7 @@ b)Advanced :
 •	In order to optimize  multiple module we need to first flatten it then use op_clean –purge and synthesis the netlist file.
 
 
-- Output of optimization of 2x1 MUX
+- Outputs of optimization of 2x1 MUX
 
 ![c3](https://user-images.githubusercontent.com/20563301/120071522-6f0e1080-c0ad-11eb-8706-97dedab6d5bc.PNG)
 
@@ -405,7 +406,7 @@ b)Advanced :
 ![c2](https://user-images.githubusercontent.com/20563301/120071534-7af9d280-c0ad-11eb-93a7-4c4c1db11962.PNG)
 
 
--Output of optimization of multiple modules in combinational circuit
+-Outputs of optimization of multiple modules in combinational circuit
 
 ![c4](https://user-images.githubusercontent.com/20563301/120071628-d6c45b80-c0ad-11eb-8aa1-ec5ea958ebb4.PNG)
 
@@ -424,7 +425,7 @@ b)Advanced :
 -gvim dff_const1.v –o dff_const2.v : open the text files of dff_cons1.v and dff_cons2.v simultaneously. 
 ```
 
-- Output of optimization of dff_const1
+- Outputs of optimization of dff_const1
 
 ![s4](https://user-images.githubusercontent.com/20563301/120071836-8d284080-c0ae-11eb-892a-84e1ecc605b5.PNG)
 
@@ -435,7 +436,7 @@ b)Advanced :
 ![s6](https://user-images.githubusercontent.com/20563301/120071858-aa5d0f00-c0ae-11eb-841a-761194c1b8d6.PNG)
 
 
-- Output of optimization of dff_const3
+- Outputs of optimization of dff_const3
 
 ![s3](https://user-images.githubusercontent.com/20563301/120071866-b8129480-c0ae-11eb-8a45-82fe35685d45.PNG)
 
@@ -447,7 +448,7 @@ b)Advanced :
 
 
 
-### Part 4 Sequential optimzations for unused outputs
+### Part 4 - Sequential optimzations for unused outputs
 ```
 cp counter_opt.v counter_opt2.v : It copy the date from counter_opt text file to another text file counter_opt2.
 ```
@@ -463,7 +464,340 @@ From the fig the output of counter should be 3 bit number but when you synthesis
 
 ## Day 4 GLS blocking vs non blocking and Synthesis Simulation mismatch
 
+### Part 1 - GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements
+
+1.	GLS(Gate Level Simulation) :
+
+-	It is a simulator which run the testbench with netlist as Design Under Test. Since Netlist is the behavioral representation of RTL Design Code hence we can use the same Testbench.
+-	GLS is needed because of two reasons:- 
+1.	To validiate the functionality of my design (netlist) after synthesis.
+2.	To ensure the timing of design is met which can be achieved by running with delay annotation.
+-	GLS is used by iverilog it is same as default method except there is a another block called Gate Level Verilog Models along with Design and Testbench
+-	We need to verify the functionality of netlist because of Synthesis Simulation Mismatch.
+
+2.	Synthesis Simulation Mismatch 
+-	It happens due to 3 Reasons:  
+1)	Missing sensitivity List
+
+![sy1](https://user-images.githubusercontent.com/20563301/120114157-7f041e00-c19b-11eb-9111-5967dbe706fa.PNG)
+	
+
  
+-	In the above figure always block contain only sel which function as a flop(takes previous values of both the input) in simulation and mux in synthesis.
+-	This creates a Synthesis Simulation mismatch which avoids by using the sensitivity list(*) .
+	
+
+2)	Blocking vs Non-Blocking Assignments
+
+a)	Blocking Assignments (==): It executes the statements in order it is written ie the first statement is executed before the second statement.
+b)	Non-Blocking Assignments(<=) : It executes all the RHS when always block is entered and assign to LHS ie parallel evalution.
+
+
+c)	Caveats with Blocking Statements: 
+-	It occur when a blocking statement is used in sequential circuits.
+-	It occur when a two blocking statement are not write in order.
+
+3)	Non Standard Verilg Coding
+
+### Part 2 - Labs on GLS and Synthesis-Simulation Mismatch
+
+    Commands for GLS
+ ```   
+Simulation:
+-	iverilog bad_mux.v tb_bad_mux.v
+-	./a.out
+-	gtkwave tb_bad_mux.vcd
+```
+Synthesis
+```
+-	yosys 
+-	read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+-	read_verilog ternary_operator_mux.v
+-	synth -top ternary_operator_mux
+-	abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+-	show
+-	write_verilog –noattr ternary_operator_mux_net.v
+```
+To get GLS output
+```
+-	iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v  ternary_operator_mux_net.v tb_ternary_operator_mux.v
+-	./a.out
+-	gtkwave  tb_ternary_operator_mux.vcd
+```
+1)	GLS output of ternary_operator_mux
 
 
 
+![g1](https://user-images.githubusercontent.com/20563301/120114211-aeb32600-c19b-11eb-9423-3c7537bc00e2.PNG)
+
+
+
+![g2](https://user-images.githubusercontent.com/20563301/120114214-b1ae1680-c19b-11eb-9507-79fabb18575f.PNG)
+
+
+
+![g3](https://user-images.githubusercontent.com/20563301/120114217-b4a90700-c19b-11eb-81bc-34b6c8c4c620.PNG)
+
+
+
+
+2)	Synthesis Simulation Mismatch Output
+
+
+![sy2](https://user-images.githubusercontent.com/20563301/120114289-1c5f5200-c19c-11eb-95c9-999ad812e74a.PNG)
+
+
+
+![sy3](https://user-images.githubusercontent.com/20563301/120114297-25e8ba00-c19c-11eb-9b73-d21829574c39.PNG)
+
+
+
+
+![sy4](https://user-images.githubusercontent.com/20563301/120114301-2bde9b00-c19c-11eb-9308-7c38edb30889.PNG)
+
+
+
+
+### Part 3 - Labs on synth-sim mismatch for blocking statement
+
+
+
+![c1](https://user-images.githubusercontent.com/20563301/120114315-4284f200-c19c-11eb-94da-cec4d93f1203.PNG)
+
+
+
+![c2](https://user-images.githubusercontent.com/20563301/120114319-46187900-c19c-11eb-8664-d6c0ffa62df6.PNG)
+
+
+
+![c3](https://user-images.githubusercontent.com/20563301/120114322-4c0e5a00-c19c-11eb-9854-cdc3d1a1a1bb.PNG)
+
+
+
+![c4](https://user-images.githubusercontent.com/20563301/120114328-50d30e00-c19c-11eb-8523-5b928c792202.PNG)
+
+
+
+
+## Day 5 If, case, for loop and for generate
+
+### Part 1 - If Case constructs
+
+1.	If-else : Consider a if-else example
+
+if <cond1>
+   C1;
+else if <cond2>
+  C2:
+else
+  C3;
+-	In the above statement the if cond1 will check and if it is true then it will executed and if it is false then it will go to else like this it will check every if condition and finally if all the conditions are false it will executed the final else statement.They are always used inside always block with req variable.
+
+-There are some danger while writing if-else condition
+	
+a)If the if condition is written but there is no else condition then the circuit will have an inferred latch which will latch the previous state of output. Generally combinational circuit do not have inferred latches.
+	
+b)But in some case these inferred latches in if condition do not affect the logic flow. For Example consider a 3 bit Up counter
+
+```	
+always @(posedge clk , posedge reset)
+     begin 
+                if (reset) 
+                         cout <=3’b000;
+                else if (en)
+                              cout <= cout +1;
+      end
+```
+
+c)	In this counter the inferred latch will latch on to previous value instead of going to zero count.
+
+
+2.	case statement  : Consider a case example below
+
+
+![ca53](https://user-images.githubusercontent.com/20563301/120114734-2eda8b00-c19e-11eb-8644-54da039e5b8d.PNG)
+
+
+
+-	In the above example the case statement will check whether the given condition is true of not and if it is true then it will execute further otherwise it will do end case.
+-	It is always used inside always block with req variable.
+	
+-	There are some Caveats with case statements
+
+a)	Incomplete case statement: 
+	
+![ca1](https://user-images.githubusercontent.com/20563301/120114751-431e8800-c19e-11eb-9d07-f679770b6bf3.PNG)
+
+	
+-	In the above example the case statement is only defined for 2’b00 and 2b’01 and hence the other combinational bit will form inferred latch.
+-	This problem can be solved by writing the default case which will avoid the inferred latch.
+
+b)	Partial assignments in case
+	
+	
+	
+![ca63](https://user-images.githubusercontent.com/20563301/120114780-59c4df00-c19e-11eb-9f91-9a6502047006.PNG)
+	
+
+
+-	In the above example the x statement is partially written and hence for the missing x statement it it will create a inferred latch in circuit.
+
+c)	Overlapping case
+- Compared with if-else the case statement do not check if the specific bit is present in it or not it just execute parallelly once the condition is true.
+- Hence it create unpredictable outputs ie one or two output for a single input which creates a problem.
+- THe example is shown below
+	
+![c73](https://user-images.githubusercontent.com/20563301/120114881-d6f05400-c19e-11eb-908f-a3b3a1ee87a8.PNG)
+
+	
+
+
+### Part 2 -  Labs on "Incomplete If Case"
+	
+	
+1. Outputs of incomp_if.v
+	
+![i1](https://user-images.githubusercontent.com/20563301/120114907-f9826d00-c19e-11eb-9a4b-5a978cfedfac.PNG)
+	
+	
+![i2](https://user-images.githubusercontent.com/20563301/120114920-069f5c00-c19f-11eb-81e6-83b20a2742de.PNG)
+
+	
+![i3](https://user-images.githubusercontent.com/20563301/120114923-0acb7980-c19f-11eb-8819-3434c4a70284.PNG)
+
+	
+![i4](https://user-images.githubusercontent.com/20563301/120114929-0f902d80-c19f-11eb-99c1-a6a3e5998156.PNG)
+	
+2. Output of incomp_if2.v
+	
+	
+![i21](https://user-images.githubusercontent.com/20563301/120115102-d4dac500-c19f-11eb-8440-94f794758c95.PNG)
+
+	
+	
+![i22](https://user-images.githubusercontent.com/20563301/120115110-dc01d300-c19f-11eb-9288-560da8007d1c.PNG)
+	
+	
+![i23](https://user-images.githubusercontent.com/20563301/120115114-e328e100-c19f-11eb-948f-167127965145.PNG)
+
+	
+	
+![i24](https://user-images.githubusercontent.com/20563301/120115116-e623d180-c19f-11eb-9343-9ce63333b997.PNG)
+
+	
+	
+### Part 3 - Labs on "Incomplete overlapping Case"
+
+1. Outputs of Incomplete case
+	
+	
+![ca2](https://user-images.githubusercontent.com/20563301/120115306-c93bce00-c1a0-11eb-9653-5c1940a233cd.PNG)
+	
+	
+![ca3](https://user-images.githubusercontent.com/20563301/120115458-5a12a980-c1a1-11eb-91df-c7a29d8ca876.PNG)
+	
+
+![ca4](https://user-images.githubusercontent.com/20563301/120115462-61d24e00-c1a1-11eb-86b6-b4c8544ee4ca.PNG)
+	
+	
+2. Outputs of Partial assignments in case
+	
+	
+![ca61](https://user-images.githubusercontent.com/20563301/120115589-f9d03780-c1a1-11eb-9a4a-fcd01cf7dddf.PNG)
+
+	
+![ca62](https://user-images.githubusercontent.com/20563301/120115597-ff2d8200-c1a1-11eb-8d0e-1fd30110274c.PNG)	
+	
+	
+3. Outputs of Overlapping case
+
+	
+![c74 gtk](https://user-images.githubusercontent.com/20563301/120115651-49166800-c1a2-11eb-82a2-1812774b0c46.PNG)
+
+
+![c71](https://user-images.githubusercontent.com/20563301/120115665-59c6de00-c1a2-11eb-9ea0-aae0351c6e87.PNG)
+	
+	
+![c72](https://user-images.githubusercontent.com/20563301/120115668-5df2fb80-c1a2-11eb-8953-aa0d2f52925f.PNG)
+	
+	
+		
+### Part 4 - for loop and for generate 
+
+There are two types of Looping Constructs :
+1. For loop
+-	It is always used inside the always block.it is used to evalulate expression to create a simplified code.
+-	Instead of using case statement for higher mux and demux, we used for loop to make the code simple to write.
+	
+	
+	
+![for1](https://user-images.githubusercontent.com/20563301/120115681-77944300-c1a2-11eb-883a-0cafd122b735.PNG)
+
+
+	
+-	In above example for loop is used to increment the selection line to get the 4x1 MUX.
+	
+	
+	
+![for4](https://user-images.githubusercontent.com/20563301/120115723-a6121e00-c1a2-11eb-8b81-49c4699203f9.PNG)
+
+
+
+-	In the above example DEMUX 1x8 is created by using for
+
+2. generate for loop 
+-	It is used to replicate the hardware to make simulation easy
+-	It is always used outside the always block.
+
+
+
+![for7](https://user-images.githubusercontent.com/20563301/120115741-b924ee00-c1a2-11eb-9d24-4b711c9e0fe6.PNG)
+	
+	
+	
+-	In the above example instead of instantiating  8  full adder, we replicate the full adder 8 times to get RIPPLE Carry Adder.
+
+
+### Part 5 - Labs on "for loop" and "for generate"
+	
+```
+- se nu : to see the number of lines in code.	
+```
+
+1.Outputs of 4x1 MUX using for	
+	
+	
+![for2](https://user-images.githubusercontent.com/20563301/120115790-02753d80-c1a3-11eb-892a-985857d61998.PNG)
+
+	
+	
+![for3](https://user-images.githubusercontent.com/20563301/120115795-0903b500-c1a3-11eb-938e-371bd6a909ee.PNG)
+	
+
+2. Outputs of 1x8 DEMUX 
+	
+![for5](https://user-images.githubusercontent.com/20563301/120115969-7a436800-c1a3-11eb-8188-470513aa6f76.PNG)
+
+	
+
+![for6](https://user-images.githubusercontent.com/20563301/120115973-7f081c00-c1a3-11eb-981c-004035e9208c.PNG)
+	
+	
+	
+	
+3.Outputs of Ripple Carry Adder
+	
+	
+	
+![for7](https://user-images.githubusercontent.com/20563301/120115990-90512880-c1a3-11eb-8627-f2884a6e9784.PNG)
+	
+	
+	
+	
+	
+	
+	
+
+
+ 
+   
