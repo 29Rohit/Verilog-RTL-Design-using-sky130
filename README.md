@@ -33,7 +33,7 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
    * [Part 3 - Labs on "Incomplete overlapping Case"](#Part-3-Labs-on-"Incomplete-overlapping-Case")
    * [Part 4 - for loop and for generate](#Part-4-for-loop-and-for-generate)
    * [Part 5 - Labs on "for loop" and "for generate"](#Part-5-Labs-on-"for-loop"-and"-for-generate")
-- [Acknwledgements](#Acknwledgements)
+- [Acknowledgements](#Acknowledgements)
 - [References](#References)
 ## Day 1 Introduction to Verilog RTL Design and Synthesis
 
