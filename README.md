@@ -33,7 +33,8 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
    * [Part 3 - Labs on "Incomplete overlapping Case"](#Part-3-Labs-on-"Incomplete-overlapping-Case")
    * [Part 4 - for loop and for generate](#Part-4-for-loop-and-for-generate)
    * [Part 5 - Labs on "for loop" and "for generate"](#Part-5-Labs-on-"for-loop"-and"-for-generate")
-
+- [Acknwledgements](#Acknwledgements)
+- [References](#References)
 ## Day 1 Introduction to Verilog RTL Design and Synthesis
 
 Usually front-end RTL design is carried out using huge EDA Tools from different vendors. Even though many of the tools come with free limited versions its better to give a try for development using open-source tools. Below is the list of tools used by this repo.
@@ -804,7 +805,21 @@ There are two types of Looping Constructs :
 	
 	
 	
-	
+### Acknowledgements
+
+- Kunal Ghosh , Co-founder (VSD Corp. Pvt. Ltd)
+- Shon Taware 
+- Mohan Jindal , Founder of Chipspirit
+- Mukesh Nadar
+
+### References
+
+- https://www.vlsisystemdesign.com/rtl-design-using-verilog-with-sky130-technology/?q=%2Frtl-design-using-verilog-with-sky130-technology%2F&v=a98eef2a3105
+- https://github.com/kunalg123/vsdflow
+- https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop
+- https://gitlab.com/gab13c/openlane-workshop.git
+
+ 
 	
 	
 	
