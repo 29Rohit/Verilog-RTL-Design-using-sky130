@@ -13,7 +13,7 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
   * [Setup the lab instance with libraries and verilog files](#Setup-the-lab-instance-with-libraries-and-verilog-files)
   * [Labs using iverilog and gtkwave](#Labs-using-iverilog-and-gtkwave)
   * [Introduction to Yosys and Logic synthesis](#Introduction-to-Yosys-and-Logic-synthesis)
-  * [Labs using Yosys and Sky130 for 2:1 Multiplex](#Labs-using-Yosys-and-Sky130-for-2-:-1-Multiplex)
+  * [Labs using Yosys and Sky130 for 2x1 Multiplex](#Labs-using-Yosys-and-Sky130-for-2-x-1-Multiplex)
 - [Day 2 Timing libs Hierarical vs Flat Synthesis and efficient Flop Coding Styles](#Day-2-Timing-libs-Hierarical-vs-Flat-Synthesis-and-efficient-Flop-Coding-Styles)
   * [Introduction to timing .libs](#Introduction-to-timing-.libs)
   * [Hierarchical vs Flat Synthesis](#Hierarchical-vs-Flat-Synthesis)
@@ -134,7 +134,7 @@ yosys> show                                                                     
 
 
 
-### Labs using Yosys and Sky130 for 2:1 Multiplex
+### Labs using Yosys and Sky130 for 2x1 Multiplex
 
 - We will perform a synthesis example of the 2:1 Multiplexer RTL design using YOSYS with appropriate library files from SKY130 technology that we cloned into the directory.
 -The yosys Commands used are as follows
