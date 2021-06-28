@@ -35,6 +35,8 @@ This particular workshop covers the various aspects of design in Verilog HDL bot
    * [Part 5 - Labs on "for loop" and "for generate"](#Part-5-Labs-on-"for-loop"-and"-for-generate")
 - [Acknowledgements](#Acknowledgements)
 - [References](#References)
+
+
 ## Day 1 Introduction to Verilog RTL Design and Synthesis
 
 Usually front-end RTL design is carried out using huge EDA Tools from different vendors. Even though many of the tools come with free limited versions its better to give a try for development using open-source tools. Below is the list of tools used by this repo.
