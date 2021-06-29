@@ -158,7 +158,7 @@ show
 
 ## Day 2 Timing libs Hierarical vs Flat Synthesis and efficient Flop Coding Styles
 
-### Part 1 - Introduction to timing .libs
+### Introduction to timing .libs
 
 ![l2](https://user-images.githubusercontent.com/20563301/120070250-33704800-c0a7-11eb-950f-a9fe915c8505.PNG)
 
@@ -194,11 +194,11 @@ Above paraments determine how fast/slow silicon works depending upon its respect
 •	sp  ../ my_lib/verilog_model/sky130_fd_sc_hd__a2111o.behavioral.v :  shows the behavioral modelling of a21110.
 •	vsp : add a text file along with existing file.
 ```
-### Part 2 - Hierarchical vs Flat Synthesis
+### Hierarchical vs Flat Synthesis
 
 Consider a simple example `multiple_modules` which instntiates two modules `sub_module1` and `sub_module2`. The sub-modules realize and logic and or logic respectively.
 
-### Hierarchial Synthesis
+### 1) Hierarchial Synthesis
 - Hierarchial synthesis can be performed using yosys by following the steps mentioned in [above section](#yosys). When there are more than one modules we need to explicitly mention the name of the module while running `show` command. The show command does not show the internals of the submodules, it is maintaining hierarchial representation.
 -	In yosys synthesis of Hierarchical and Flat Synthesis a NAND gate with both inputs inverted using two inverters is implemented instead of Nor gate because stacked NMOS is better than stacked PMOS which has low mobility and to remove it we need a good logical effort.
 -	The schematic of hierarchical design in Yosys do not show the internal logic of any submodule instantiated.
@@ -232,7 +232,7 @@ show multiple_modules : show the circuit diagram of multiple modules in Hierarch
 ![h1](https://user-images.githubusercontent.com/20563301/120070432-299b1480-c0a8-11eb-9d30-8c9c9e33dd97.PNG)
 
 
-### Flat Synthesis
+### 2) Flat Synthesis
 
 
 Run the below command to flatten the synthesized design
@@ -271,7 +271,7 @@ The synthesized design looks as shown below if we run `show` command after flatt
 
 
 
-### Submodule Level Synthesis
+### 3) Submodule Level Synthesis
 
 Submodule level synthesis comes handy in several cases, if same submodule is instantiated many times within the module then we can synthesize the submodule only once using the submodule level synthesis. Consider another case where the design is very large and produces non-optimal netlist when synthesis is performed at once, here we can synthesize the submodules seperatly to produce optimal netlist.
 
@@ -292,7 +292,7 @@ Why it is needed? Reasons:-
 
 ### Part 3 - Efficient Flip-flop coding styles and Optimizations
 
- 1) Flip Flops
+ #### Flip Flops
 - The disadvantage of combinational circuit is they have glitch in output waveform which is created due proportional delay in gates.
 
 - In order to avoid glitch we use flip flop which store the bit to make the output waveform stable for next combinational circuit.
@@ -377,7 +377,7 @@ Outputs of mult8
 
 ## Day 3 Combinational and sequential optimization
 
-### Part 1 - Introduction to optimizations
+### Introduction to optimizations
 
 
 1) Combinational Optimization: It squeezing the combinational logic to most optimized design in order to save area and power savings.
@@ -399,7 +399,7 @@ b)Advanced :
 -	Sequential Logic cloning: It is a optimization technique which involves cloning of flip flop which has large positive slack to reduce the router delay between flops.
 
 
-### Part 2 - Combinational logic optimizations (Labs)
+### Combinational logic optimizations (Labs)
 
 ```
 •	opt_clean –purge: It optimize and cleans the unused states in output file.
@@ -432,7 +432,7 @@ b)Advanced :
 ![c6](https://user-images.githubusercontent.com/20563301/120071644-e479e100-c0ad-11eb-8409-88e1cd2c327d.PNG)
 
 
-### Part 3 - Sequential logic optimizations (Labs)
+### Sequential logic optimizations (Labs)
 ```
 -gvim dff_const1.v –o dff_const2.v : open the text files of dff_cons1.v and dff_cons2.v simultaneously. 
 ```
@@ -460,7 +460,7 @@ b)Advanced :
 
 
 
-### Part 4 - Sequential optimzations for unused outputs
+### Sequential optimzations for unused outputs
 ```
 cp counter_opt.v counter_opt2.v : It copy the date from counter_opt text file to another text file counter_opt2.
 ```
@@ -476,7 +476,7 @@ From the fig the output of counter should be 3 bit number but when you synthesis
 
 ## Day 4 GLS blocking vs non blocking and Synthesis Simulation mismatch
 
-### Part 1 - GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements
+### GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements
 
 1.	GLS(Gate Level Simulation) :
 
@@ -511,7 +511,7 @@ c)	Caveats with Blocking Statements:
 
 3)	Non Standard Verilg Coding
 
-### Part 2 - Labs on GLS and Synthesis-Simulation Mismatch
+### Labs on GLS and Synthesis-Simulation Mismatch
 
     Commands for GLS
  ```   
@@ -570,7 +570,7 @@ To get GLS output
 
 
 
-### Part 3 - Labs on synth-sim mismatch for blocking statement
+### Labs on synth-sim mismatch for blocking statement
 
 
 
@@ -593,7 +593,7 @@ To get GLS output
 
 ## Day 5 If, case, for loop and for generate
 
-### Part 1 - If Case constructs
+### If Case constructs
 
 1.	If-else : Consider a if-else example
 ```
@@ -666,7 +666,7 @@ c)	Overlapping case
 	
 
 
-### Part 2 -  Labs on "Incomplete If Case"
+### Labs on "Incomplete If Case"
 	
 	
 1. Outputs of incomp_if.v
@@ -700,7 +700,7 @@ c)	Overlapping case
 
 	
 	
-### Part 3 - Labs on "Incomplete overlapping Case"
+### Labs on "Incomplete overlapping Case"
 
 1. Outputs of Incomplete case
 	
@@ -736,7 +736,7 @@ c)	Overlapping case
 	
 	
 		
-### Part 4 - for loop and for generate 
+### for loop and for generate 
 
 There are two types of Looping Constructs :
 1. For loop
@@ -772,7 +772,7 @@ There are two types of Looping Constructs :
 -	In the above example instead of instantiating  8  full adder, we replicate the full adder 8 times to get RIPPLE Carry Adder.
 
 
-### Part 5 - Labs on "for loop" and "for generate"
+### Labs on "for loop" and "for generate"
 	
 ```
 - se nu : to see the number of lines in code.	
