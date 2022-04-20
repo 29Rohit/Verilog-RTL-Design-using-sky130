@@ -389,7 +389,8 @@ i) There are 2 types of combinational optimization
 (b) Boolean Logic Optimisation: it reduces a complex Boolean expression into its simplified form with the help of K-map and quine Mckluskey.
 
 2. Sequential Logic Optimisations
-     a)Sequential Constant propagation: 
+    
+    a)Sequential Constant propagation: 
 - It is direct optimization technique which happens in flop irrespective of set/reset it should give constant output value which led to constant propogation delay.
 - If the output does not give constant value due to delay in set/reset and output led to regaining of flip flop.
 
